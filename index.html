@@ -115,7 +115,7 @@ button:focus-visible{outline:3px solid var(--cheong);outline-offset:2px}
   <div class="hud" aria-live="polite">
     <div class="chip"><small>점수</small><b id="hScore">0</b></div>
     <div class="chip"><small>콤보</small><b id="hCombo">0</b></div>
-    <div class="chip"><small id="hBelt">흰띠</small><b id="hLevel">1단계</b><span class="prog" id="hProg">0/8</span></div>
+    <div class="chip"><small id="hBelt">흰띠</small><b id="hLevel">1/2단계</b><span class="prog" id="hProg">정답 0/8</span></div>
     <div class="chip"><small>에너지</small><div class="lives" id="hLives"><i></i><i></i><i></i><i></i><i></i></div></div>
   </div>
 
@@ -708,7 +708,7 @@ function gameOver(){
 
 /* ---------- UI ---------- */
 function hud(){
-  $('hScore').textContent=G.score.toLocaleString();$('hCombo').textContent=G.combo;$('hLevel').textContent=G.level+'단계';$('hBelt').textContent=BELTS[G.belt].name;$('hProg').textContent=(G.solved%8)+'/8';
+  $('hScore').textContent=G.score.toLocaleString();$('hCombo').textContent=G.combo;$('hLevel').textContent=G.level+'/2단계';$('hBelt').textContent=BELTS[G.belt].name;$('hProg').textContent='정답 '+(G.solved%8)+'/8';
   [...$('hLives').children].forEach((el,i)=>el.classList.toggle('off',i>=G.lives));
 }
 function qUI(){$('qText').textContent=G.prob.text;$('qText').parentElement.classList.toggle('long',G.prob.text.length>11);const a=$('qAns');a.textContent=G.input||'?';a.classList.toggle('empty',!G.input)}
